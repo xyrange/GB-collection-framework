@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Collector's Political Framework for Contemporary Art</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=Noto+Serif+SC:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1814;
+  --paper: #f5f2ec;
+  --dim: #6b6760;
+  --rule: #c8c3ba;
+  --accent-cn: #9c3a2a;
+  --accent-eu: #1a3f6e;
+  --accent-us: #1d6e4a;
+  --accent-la: #4a6e1a;
+  --accent-ea: #5a5a5a;
+  --accent-ten: #7a3a6e;
+  --mono: 'DM Mono', monospace;
+  --serif: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--serif);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HEADER ── */
+header {
+  border-bottom: 1px solid var(--ink);
+  padding: 4rem 0 3rem;
+  margin-bottom: 0;
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: end;
+}
+.title-block h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+.title-block .subtitle {
+  font-size: 1rem;
+  color: var(--dim);
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+.lang-toggle {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+.lang-btn {
+  padding: 0.4rem 1rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--dim);
+  transition: all 0.2s;
+}
+.lang-btn.active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+}
+.nav-link {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--dim);
+  text-decoration: none;
+  padding: 0.9rem 1.2rem;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.nav-link:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.nav-link.active { color: var(--ink); border-bottom-color: var(--ink); }
+
+/* ── LAYOUT ── */
+.page { max-width: 1080px; margin: 0 auto; padding: 0 3rem; }
+
+section {
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+section:last-child { border-bottom: none; }
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--dim);
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+h3 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.8rem;
+}
+p { margin-bottom: 1.2rem; color: var(--ink); }
+p:last-child { margin-bottom: 0; }
+
+.bilingual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+@media (max-width: 720px) {
+  .bilingual { grid-template-columns: 1fr; gap: 2rem; }
+  .header-inner { grid-template-columns: 1fr; }
+  .page { padding: 0 1.5rem; }
+  .nav-inner { padding: 0 1.5rem; }
+}
+
+.lang-cn { font-family: 'Noto Serif SC', var(--serif); line-height: 2; }
+.lang-en { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+/* single-lang mode */
+body.show-cn .lang-en { display: none; }
+body.show-cn .bilingual { grid-template-columns: 1fr; max-width: 680px; }
+body.show-en .lang-cn { display: none; }
+body.show-en .bilingual { grid-template-columns: 1fr; max-width: 680px; }
+
+/* ── AXIS DEFINITIONS ── */
+.axis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin: 2.5rem 0;
+  border: 1px solid var(--rule);
+}
+.axis-cell {
+  padding: 2rem;
+  background: #fff;
+}
+.axis-cell:nth-child(odd) { background: rgba(0,0,0,0.02); }
+.axis-tag {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+.axis-title {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 0.6rem;
+}
+@media (max-width: 720px) { .axis-grid { grid-template-columns: 1fr; } }
+
+/* ── ARTIST TYPES ── */
+.type-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin: 2.5rem 0;
+}
+.type-card {
+  padding: 2rem;
+  background: #fff;
+  border-top: 3px solid var(--rule);
+  position: relative;
+}
+.type-card.political { border-top-color: var(--accent-eu); }
+.type-card.indifferent { border-top-color: var(--accent-ea); }
+.type-card.ambiguous { border-top-color: var(--accent-cn); }
+.type-symbol {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  opacity: 0.7;
+}
+@media (max-width: 720px) { .type-grid { grid-template-columns: 1fr; } }
+
+/* ── TENSION TYPES ── */
+.tension-list {
+  margin: 2.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.tension-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0;
+  background: #fff;
+}
+.tension-label {
+  padding: 1.5rem 2rem;
+  border-right: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.tension-bar {
+  height: 4px;
+  background: var(--accent-ten);
+  margin-top: 0.5rem;
+  opacity: 0.6;
+}
+.tension-body {
+  padding: 1.5rem 2rem;
+}
+.tension-artists {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--dim);
+  margin-top: 0.5rem;
+  letter-spacing: 0.02em;
+}
+@media (max-width: 720px) {
+  .tension-item { grid-template-columns: 1fr; }
+  .tension-label { border-right: none; border-bottom: 1px solid var(--rule); }
+}
+
+/* ── FRAMEWORKS ── */
+.framework-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 2.5rem;
+  overflow-x: auto;
+}
+.ftab {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--dim);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.ftab.active { color: var(--ink); border-bottom-color: var(--ink); }
+.framework-panel { display: none; }
+.framework-panel.active { display: block; }
+.framework-embed {
+  width: 100%;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+}
+.framework-embed iframe { width: 100%; border: none; min-height: 700px; }
+
+/* ── DIALOGUE ── */
+.dialogue-thread {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 2.5rem 0;
+}
+.d-moment {
+  border-left: 1px solid var(--rule);
+  padding-left: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+.d-moment::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 8px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+}
+.d-phase {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 1rem;
+}
+.d-exchange {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.d-q {
+  background: rgba(0,0,0,0.03);
+  border-left: 2px solid var(--ink);
+  padding: 1rem 1.2rem;
+  font-size: 0.95rem;
+}
+.d-q-label {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+.d-a {
+  padding: 1rem 1.2rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #3a3730;
+}
+.d-a-label {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  font-style: normal;
+}
+.d-insight {
+  margin-top: 1.2rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--rule);
+  background: #fff;
+  font-size: 0.9rem;
+}
+.d-insight-label {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--accent-ten);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--ink);
+  padding: 3rem 0;
+  margin-top: 0;
+}
+.footer-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-meta {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--dim);
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+}
+.version-tag {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--dim);
+  letter-spacing: 0.06em;
+}
+
+/* ── REGION CHIPS ── */
+.chip {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 1px;
+  margin: 0.1rem;
+}
+.chip-cn { background: rgba(156,58,42,0.1); color: var(--accent-cn); }
+.chip-eu { background: rgba(26,63,110,0.1); color: var(--accent-eu); }
+.chip-us { background: rgba(29,110,74,0.1); color: var(--accent-us); }
+.chip-la { background: rgba(74,110,26,0.1); color: var(--accent-la); }
+.chip-ea { background: rgba(90,90,90,0.1); color: var(--accent-ea); }
+
+/* ── QUOTE PULL ── */
+.pull-quote {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  border-left: 2px solid var(--ink);
+  padding: 1.5rem 2rem;
+  margin: 3rem 0;
+  color: #2a2820;
+}
+
+/* ── SCROLL ANIMATION ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── INLINE SVG COMPASS (small preview) ── */
+.compass-mini {
+  width: 100%;
+  max-width: 560px;
+  margin: 2rem auto;
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="title-block">
+      <h1>A Collector's Political Framework<br>for Contemporary Art<br><span style="font-style:italic;font-size:0.8em">当代艺术收藏政治学框架</span></h1>
+      <div class="subtitle">An evolving research document — version 7.1 &nbsp;·&nbsp; 研究文献持续更新中</div>
+    </div>
+    <div>
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btn-bi" onclick="setLang('bi')">EN/中</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-cn" onclick="setLang('cn')">中</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#definitions" class="nav-link">01 · Axis Definitions / 坐标轴定义</a>
+    <a href="#tension" class="nav-link">02 · Tension Types / 张力类型</a>
+    <a href="#frameworks" class="nav-link">03 · Frameworks / 分析框架</a>
+    <a href="#dialogue" class="nav-link">04 · Derivation / 推导过程</a>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════
+     SECTION 01 · AXIS DEFINITIONS
+     ════════════════════════════════════════ -->
+<section id="definitions">
+<div class="page">
+  <div class="section-label">01 · Axis Definitions &nbsp; 坐标轴定义</div>
+
+  <div class="pull-quote fade-in">
+    The collector's framework rests on a foundational distinction: between where an artist is placed by geography and history, and where their practice actually stands.<br>
+    <span class="lang-cn" style="font-size:0.85em;display:block;margin-top:0.8rem">这个框架的根基是一个核心区分：艺术家被地理与历史所赋予的位置，与其创作实践真正站立的位置。</span>
+  </div>
+
+  <!-- X / Y Axes -->
+  <h2 class="fade-in">I. The Political Spectrum Axes &nbsp; <span class="lang-cn">政治光谱坐标轴</span></h2>
+
+  <div class="axis-grid fade-in">
+    <div class="axis-cell">
+      <div class="axis-tag">X-axis / X轴</div>
+      <div class="axis-title">Left ↔ Right &nbsp; <span class="lang-cn">左翼 ↔ 右翼</span></div>
+      <div class="bilingual">
+        <div class="lang-en">
+          <p>Measures the political content orientation of an artist's work — not their biography. Left-wing practice tends to critique capital accumulation, speak for marginalised communities, and challenge existing power relations. Right-wing practice embraces market logic, treats commodification as neutral or positive, or affirms existing hierarchies.</p>
+          <p style="font-size:0.85rem;color:var(--dim)"><em>Correction note (v7.1):</em> "Not engaging with political content" does not equal right-wing. Indifferent artists (■) are positioned by content orientation, not market presence.</p>
+        </div>
+        <div class="lang-cn">
+          <p>测量艺术家作品的政治内容倾向——而非其个人传记。左翼实践倾向于批判资本积累、为边缘群体代言、挑战既有权力关系。右翼实践拥抱市场逻辑，将商品化视为中性或积极的力量，或肯定现有秩序。</p>
+          <p style="font-size:0.85rem;color:var(--dim)"><em>校准说明（v7.1）：</em>"不涉及政治内容"不等于右翼。漠视性艺术家（■）的X轴位置由作品内容倾向决定，而非市场地位。</p>
+        </div>
+      </div>
+    </div>
+    <div class="axis-cell">
+      <div class="axis-tag">Y-axis / Y轴</div>
+      <div class="axis-title">Authoritarian ↔ Liberated &nbsp; <span class="lang-cn">集权 ↔ 自由</span></div>
+      <div class="bilingual">
+        <div class="lang-en">
+          <p>Measures the relationship between an artist's practice and power structures — not the political system of their country. Authoritarian end: practice serves or is complicit with power (state apparatus or market logic). Liberated end: practice actively resists or escapes power structures.</p>
+          <p style="font-size:0.85rem;color:var(--dim)"><em>Critical distinction:</em> A Chinese artist who paints domestic scenes is not "authoritarian" because China is authoritarian. Their Y-axis position must be read from their practice, not their passport.</p>
+        </div>
+        <div class="lang-cn">
+          <p>测量艺术家创作实践与权力结构之间的实际关系——而非其所在国家的政治体制。集权端：实践服务于或与权力共谋（国家机器或市场逻辑）。自由端：实践主动抵抗或逃离权力结构。</p>
+          <p style="font-size:0.85rem;color:var(--dim)"><em>关键区分：</em>一位画日常场景的中国艺术家，不因为中国是集权国家就处于"集权端"。Y轴位置必须从其创作实践中读取，而非其护照。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Three artist types -->
+  <h2 class="fade-in" style="margin-top:3.5rem">II. Three Artist Types &nbsp; <span class="lang-cn">三类艺术家定位逻辑</span></h2>
+
+  <div class="type-grid fade-in">
+    <div class="type-card political">
+      <div class="type-symbol">●</div>
+      <h3>Political <span class="lang-cn">政治性</span></h3>
+      <div class="bilingual">
+        <div class="lang-en"><p>The Y-axis is determined by the actual relationship between the practice and power structures. Geography is context, not determinant. Examples: Ai Weiwei (Y: deeply liberated — practice directly confronts state power), Louise Bourgeois (Y: liberated — challenges patriarchal psychological structures).</p></div>
+        <div class="lang-cn"><p>Y轴由创作实践与权力结构的实际关系决定，国籍是语境而非决定因素。例：艾未未（Y轴极度偏自由——实践直接对抗国家权力），路易丝·布尔乔亚（Y轴偏自由——挑战父权心理结构）。</p></div>
+      </div>
+    </div>
+    <div class="type-card indifferent">
+      <div class="type-symbol">■</div>
+      <h3>Indifferent <span class="lang-cn">漠视性</span></h3>
+      <div class="bilingual">
+        <div class="lang-en"><p>Y-axis stays near centre (±0.15). The practice is neither compliant nor defiant toward power structures — it simply operates outside that relationship. Color (regional origin) carries the geographic-political context. X-axis reflects content orientation, not market position.</p></div>
+        <div class="lang-cn"><p>Y轴归中（±0.15范围内）。创作实践对权力结构既不服从也不对抗——它只是在这个关系之外运作。颜色（地区归属）携带地理政治语境。X轴反映内容倾向，不反映市场地位。</p></div>
+      </div>
+    </div>
+    <div class="type-card ambiguous">
+      <div class="type-symbol">▲</div>
+      <h3>Strategically ambiguous <span class="lang-cn">策略性模糊</span></h3>
+      <div class="bilingual">
+        <div class="lang-en"><p>Political awareness is present, but the artist deliberately withholds a clear stance. Y-axis is determined by the degree to which the practice is embedded in power systems. Examples: Cai Guo-Qiang (embedded in state spectacle), Gerhard Richter (radical ideological scepticism, refuses position).</p></div>
+        <div class="lang-cn"><p>政治意识存在，但艺术家刻意不表态。Y轴由其实践对权力体系的实际嵌入程度决定。例：蔡国强（嵌入国家奇观体系），格哈德·里希特（彻底的意识形态怀疑论，拒绝任何表态）。</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Geographic vs Artistic Political -->
+  <h2 class="fade-in" style="margin-top:3.5rem">III. Geographic-Political vs. Artistic-Political &nbsp; <span class="lang-cn">地理政治性与艺术政治性</span></h2>
+
+  <div class="bilingual fade-in">
+    <div class="lang-en">
+      <p>This is the collector's core meta-proposition: every artist simultaneously exists within two distinct coordinate systems.</p>
+      <p><strong>Geographic-political position</strong> is the political reality of the artist's country and cultural context — the system they were born into, live within, or have escaped. This is an objective external coordinate that the artist does not choose.</p>
+      <p><strong>Artistic-political position</strong> is the actual relationship between their creative practice and power structures: complicity, defiance, circumvention, or indifference. This is the artist's subjective practical choice.</p>
+      <p>The <strong>distance between the two</strong> — and the direction of that distance — is the most information-rich signal in the entire framework. It is where the real collecting narrative lives.</p>
+    </div>
+    <div class="lang-cn">
+      <p>这是收藏家的核心元命题：每位艺术家同时存在于两个截然不同的坐标系之中。</p>
+      <p><strong>地理政治坐标</strong>是艺术家所在国家与文化土壤的政治现实——他们出生于其中、生存于其中、或已逃离的体制。这是艺术家不能选择的客观外部坐标。</p>
+      <p><strong>艺术政治坐标</strong>是其创作实践与权力结构之间的实际关系：共谋、对抗、迂回或漠视。这是艺术家主观的实践选择。</p>
+      <p>两者之间的<strong>距离</strong>——以及这个距离的方向——是整个框架中信息密度最高的信号。收藏叙事真正存在于此。</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SECTION 02 · TENSION TYPES
+     ════════════════════════════════════════ -->
+<section id="tension">
+<div class="page">
+  <div class="section-label">02 · Tension Types &nbsp; 张力类型</div>
+
+  <h2 class="fade-in">The Four Patterns of Tension &nbsp; <span class="lang-cn">四种张力模式</span></h2>
+
+  <div class="bilingual fade-in" style="margin-bottom:2.5rem">
+    <div class="lang-en"><p>The distance between geographic-political position and artistic-political position produces distinct tension patterns. Each pattern carries a different collecting significance — the tension is not merely descriptive but generative: it explains why a work carries the political energy it does.</p></div>
+    <div class="lang-cn"><p>地理政治坐标与艺术政治坐标之间的距离，产生了不同的张力模式。每种模式携带不同的收藏意义——张力不仅仅是描述性的，而是生成性的：它解释了为什么一件作品携带着它所具有的政治能量。</p></div>
+  </div>
+
+  <div class="tension-list fade-in">
+
+    <div class="tension-item">
+      <div class="tension-label">
+        <span>Rupture / 撕裂</span>
+        <div class="tension-bar" style="width:95%"></div>
+        <span style="font-size:0.62rem;color:var(--dim);margin-top:0.2rem">Maximum tension</span>
+      </div>
+      <div class="tension-body">
+        <div class="bilingual">
+          <div class="lang-en"><p>The geographic and artistic coordinates point in opposite directions with maximum force. The practice is shaped by — and defines itself against — an extreme external condition. The tension is the work's primary energy source.</p></div>
+          <div class="lang-cn"><p>地理坐标与艺术坐标以最大力度指向相反方向。创作实践被极端的外部条件所塑造，并以此定义自身。张力是作品能量的首要来源。</p></div>
+        </div>
+        <div class="tension-artists">
+          <span class="chip chip-cn">Ai Weiwei 艾未未</span>
+          <span class="chip chip-la">Yoan Capote</span>
+          <span class="chip chip-cn">Chen Zhen 陈箴</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tension-item">
+      <div class="tension-label">
+        <span>Drift / 漂移</span>
+        <div class="tension-bar" style="width:55%;background:var(--accent-eu)"></div>
+        <span style="font-size:0.62rem;color:var(--dim);margin-top:0.2rem">Moderate tension</span>
+      </div>
+      <div class="tension-body">
+        <div class="bilingual">
+          <div class="lang-en"><p>Geographic and artistic positions diverge measurably but not extremely — the practice moves away from what the external system would predict. Often a survival strategy: the artist uses whatever latitude the system allows to maintain critical distance. The direction of drift (toward or away from freedom) matters as much as its magnitude.</p></div>
+          <div class="lang-cn"><p>地理坐标与艺术坐标有可测量但并不极端的偏离——创作实践偏离了外部体制所预测的方向。通常是一种生存策略：艺术家利用体制允许的空间来保持批判距离。漂移的方向（朝向或远离自由）与其幅度同等重要。</p></div>
+        </div>
+        <div class="tension-artists">
+          <span class="chip chip-cn">Liu Xiaodong 刘小东</span>
+          <span class="chip chip-cn">Xu Bing 徐冰</span>
+          <span class="chip chip-la">Francis Alÿs</span>
+          <span class="chip chip-ea">Lee Bul 李昢</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tension-item">
+      <div class="tension-label">
+        <span>Diaspora paradox / 离散悖论</span>
+        <div class="tension-bar" style="width:72%;background:var(--accent-la)"></div>
+        <span style="font-size:0.62rem;color:var(--dim);margin-top:0.2rem">Complex tension</span>
+      </div>
+      <div class="tension-body">
+        <div class="bilingual">
+          <div class="lang-en"><p>The artist has crossed between political systems — by exile, diaspora, or migration. Their geographic-political position is itself contested: they carry one system's memory while operating inside another's freedoms (or constraints). The tension is not a single vector but a palimpsest. The work often derives its power from exactly this doubled position.</p></div>
+          <div class="lang-cn"><p>艺术家已跨越政治体制之间——通过流亡、离散或移民。其地理政治坐标本身是争议性的：他们携带着一个体制的记忆，在另一个体制的自由（或限制）中运作。张力不是单一向量，而是一个叠写本。作品往往从这种双重位置中获得力量。</p></div>
+        </div>
+        <div class="tension-artists">
+          <span class="chip chip-cn">Yan Pei-Ming 严培明</span>
+          <span class="chip chip-cn">Danh Vo</span>
+          <span class="chip chip-cn">Chen Zhen 陈箴</span>
+          <span class="chip chip-eu">Francis Alÿs</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tension-item">
+      <div class="tension-label">
+        <span>Coincidence / 重合</span>
+        <div class="tension-bar" style="width:8%;background:var(--dim)"></div>
+        <span style="font-size:0.62rem;color:var(--dim);margin-top:0.2rem">Minimal tension</span>
+      </div>
+      <div class="tension-body">
+        <div class="bilingual">
+          <div class="lang-en"><p>Geographic and artistic positions nearly overlap — the practice reflects or accepts the external system. In an open system this may be straightforward aesthetic choice (Lenz Geerk, Bruno Gadenne: indifferent in a free context). In a closed system it carries a heavier implication: complicity, or a deliberate choice to disappear into beauty. Neither is necessarily a negative collecting judgment — the meaning depends on the quadrant.</p></div>
+          <div class="lang-cn"><p>地理坐标与艺术坐标几乎重合——创作实践反映或接受外部体制。在开放体制中，这可能只是纯粹的美学选择（Lenz Geerk、Bruno Gadenne：在自由语境中的漠视）。在封闭体制中，这携带着更重的含义：共谋，或是一种刻意消失于美的选择。这两者都不必然是负面的收藏判断——意义取决于所处象限。</p></div>
+        </div>
+        <div class="tension-artists">
+          <span class="chip chip-eu">Lenz Geerk</span>
+          <span class="chip chip-eu">Bruno Gadenne</span>
+          <span class="chip chip-eu">Georg Baselitz</span>
+          <span class="chip chip-cn">Cai Xiaohua 蔡小华</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pull-quote fade-in">
+    The collector's unique vantage point is rooted in China. The framework is built to show that political themes and positions are not confined within national borders — they are shared, dialogic, and transcultural.<br>
+    <span class="lang-cn" style="font-size:0.85em;display:block;margin-top:0.8rem">这位收藏家的独特视角以中国为根。框架被构建为证明：政治性议题和立场不被局限在国别之内——它们是共享的、对话性的、跨文化的。</span>
+  </div>
+</div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SECTION 03 · THREE FRAMEWORKS
+     ════════════════════════════════════════ -->
+<section id="frameworks">
+<div class="page">
+  <div class="section-label">03 · Analysis Frameworks &nbsp; 三个分析框架</div>
+
+  <div class="bilingual fade-in" style="margin-bottom:2rem">
+    <div class="lang-en"><p>Three complementary visual frameworks, each foregrounding a different dimension of the collector's system. They can be used independently or read together as a sequence: the spectrum map shows where artists stand; the dual-layer overlay shows the gap between geographic and artistic positions; the tension matrix and chord diagram make that gap the primary subject.</p></div>
+    <div class="lang-cn"><p>三个互补的可视化框架，每个框架突出收藏体系的不同维度。可以独立使用，也可以作为一个序列阅读：光谱图显示艺术家的站位；双层叠加图显示地理坐标与艺术坐标之间的差距；张力矩阵和弦图则以这种差距本身为主角。</p></div>
+  </div>
+
+  <div class="framework-tabs">
+    <button class="ftab active" onclick="showFrame(0,this)">Framework A · Political Spectrum Map / 政治光谱图</button>
+    <button class="ftab" onclick="showFrame(1,this)">Framework B · Dual-layer Overlay / 双层叠加</button>
+    <button class="ftab" onclick="showFrame(2,this)">Framework C · Tension Matrix &amp; Chord / 张力矩阵与弦图</button>
+  </div>
+
+  <div class="framework-panel active" id="fp0">
+    <div class="bilingual">
+      <div class="lang-en">
+        <h3>Political Spectrum Map (v7.1)</h3>
+        <p>The foundational framework. X-axis: left ↔ right (content orientation). Y-axis: authoritarian ↔ liberated (practice relationship to power). Three node shapes encode artist type. Color encodes regional origin. Collected artists (◆ pentagon) are marked larger. Dashed rings indicate geographic-political context for indifferent artists. The dual-coordinate drag system allows the collector to set a personal judgment alongside the consensus position.</p>
+      </div>
+      <div class="lang-cn">
+        <h3>政治光谱图（v7.1）</h3>
+        <p>基础框架。X轴：左翼↔右翼（内容倾向）。Y轴：集权↔自由（创作实践与权力的关系）。三种节点形状编码艺术家类型。颜色编码地区归属。已收藏艺术家（◆五边形）标注更大。虚线圈为漠视性艺术家提供地理政治语境。双坐标拖拽系统允许收藏家在共识位置旁设置个人判断。</p>
+      </div>
+    </div>
+
+    <!-- Embedded inline version of compass (simplified for static page) -->
+    <div class="framework-embed" style="background:#f9f7f3;padding:2rem;text-align:center">
+      <svg viewBox="0 0 700 520" style="width:100%;max-width:700px;display:block;margin:0 auto" xmlns="http://www.w3.org/2000/svg">
+        <line x1="50" y1="260" x2="650" y2="260" stroke="#c8c3ba" stroke-width="0.8"/>
+        <line x1="350" y1="30" x2="350" y2="490" stroke="#c8c3ba" stroke-width="0.8"/>
+        <line x1="200" y1="30" x2="200" y2="490" stroke="#c8c3ba" stroke-width="0.4" stroke-dasharray="3,4" opacity="0.5"/>
+        <line x1="500" y1="30" x2="500" y2="490" stroke="#c8c3ba" stroke-width="0.4" stroke-dasharray="3,4" opacity="0.5"/>
+        <line x1="50" y1="145" x2="650" y2="145" stroke="#c8c3ba" stroke-width="0.4" stroke-dasharray="3,4" opacity="0.5"/>
+        <line x1="50" y1="375" x2="650" y2="375" stroke="#c8c3ba" stroke-width="0.4" stroke-dasharray="3,4" opacity="0.5"/>
+        <text x="55" y="255" font-size="10" fill="#6b6760" font-family="DM Mono,monospace">Left</text>
+        <text x="618" y="255" font-size="10" fill="#6b6760" font-family="DM Mono,monospace">Right</text>
+        <text x="356" y="42" font-size="10" fill="#6b6760" font-family="DM Mono,monospace">Authoritarian</text>
+        <text x="356" y="484" font-size="10" fill="#6b6760" font-family="DM Mono,monospace">Liberated</text>
+        <!-- Sample artists plotted -->
+        <!-- Ai Weiwei: x=-0.65, y=-0.52 → sx=350-0.65*300=155, sy=260+0.52*225=377 -->
+        <circle cx="155" cy="377" r="8" fill="none" stroke="#9c3a2a" stroke-width="2.2"/>
+        <polygon points="155,369 163,382 147,382" fill="none" stroke="#9c3a2a" stroke-width="1.5" transform="translate(0,5)"/>
+        <text x="168" y="382" font-size="9" fill="#9c3a2a" font-family="DM Mono,monospace">Ai Weiwei</text>
+        <!-- Joseph Beuys: x=-0.72, y=-0.65 → sx=134, sy=406 -->
+        <circle cx="134" cy="406" r="7" fill="none" stroke="#185FA5" stroke-width="1.6"/>
+        <text x="145" y="410" font-size="9" fill="#185FA5" font-family="DM Mono,monospace">Beuys</text>
+        <!-- Andy Warhol: x=0.55, y=0.18 → sx=515, sy=219 -->
+        <polygon points="515,206 526,222 504,222" fill="none" stroke="#1D9E75" stroke-width="1.6"/>
+        <text x="530" y="222" font-size="9" fill="#1D9E75" font-family="DM Mono,monospace">Warhol</text>
+        <!-- Barbara Kruger: x=-0.72, y=-0.20 → sx=134, sy=305 -->
+        <circle cx="134" cy="305" r="7" fill="none" stroke="#1D9E75" stroke-width="1.6"/>
+        <text x="145" y="309" font-size="9" fill="#1D9E75" font-family="DM Mono,monospace">Kruger</text>
+        <!-- Cai Guo-Qiang: x=0.08, y=0.22 → sx=374, sy=211 -->
+        <polygon points="374,202 382,216 366,216" fill="none" stroke="#9c3a2a" stroke-width="1.6"/>
+        <text x="385" y="215" font-size="9" fill="#9c3a2a" font-family="DM Mono,monospace">Cai Guo-Qiang</text>
+        <!-- Mimmo Paladino collected: x=0.15, y=0.38 → sx=395, sy=175 -->
+        <polygon points="395,163 404,170 401,181 389,181 386,170" fill="none" stroke="#185FA5" stroke-width="2.2"/>
+        <text x="408" y="178" font-size="9" fill="#185FA5" font-family="DM Mono,monospace">Paladino ◆</text>
+        <!-- Richard Long collected: x=-0.32, y=-0.72 → sx=254, sy=422 -->
+        <polygon points="254,412 263,419 260,430 248,430 245,419" fill="none" stroke="#185FA5" stroke-width="2.2"/>
+        <text x="267" y="426" font-size="9" fill="#185FA5" font-family="DM Mono,monospace">R. Long ◆</text>
+        <!-- Yoan Capote: x=-0.45, y=0.25 → sx=215, sy=204 -->
+        <circle cx="215" cy="204" r="7" fill="none" stroke="#639922" stroke-width="1.6"/>
+        <text x="226" y="208" font-size="9" fill="#639922" font-family="DM Mono,monospace">Capote</text>
+        <!-- legend -->
+        <circle cx="60" cy="505" r="6" fill="none" stroke="#6b6760" stroke-width="1.4"/>
+        <text x="70" y="509" font-size="8.5" fill="#6b6760" font-family="DM Mono,monospace">Political</text>
+        <rect x="120" y="499" width="10" height="10" rx="1" fill="none" stroke="#6b6760" stroke-width="1.4"/>
+        <text x="134" y="509" font-size="8.5" fill="#6b6760" font-family="DM Mono,monospace">Indifferent</text>
+        <polygon points="200,504 206,514 194,514" fill="none" stroke="#6b6760" stroke-width="1.4"/>
+        <text x="211" y="509" font-size="8.5" fill="#6b6760" font-family="DM Mono,monospace">Ambiguous</text>
+        <polygon points="285,504 292,509 290,515 280,515 278,509" fill="none" stroke="#6b6760" stroke-width="1.8"/>
+        <text x="298" y="509" font-size="8.5" fill="#6b6760" font-family="DM Mono,monospace">Collected ◆</text>
+      </svg>
+      <p style="font-size:0.75rem;color:var(--dim);margin-top:1rem;font-family:'DM Mono',monospace">Simplified illustration — full interactive version in live research sessions / 简化示意图，完整交互版本在研究会话中使用</p>
+    </div>
+  </div>
+
+  <div class="framework-panel" id="fp1">
+    <div class="bilingual">
+      <div class="lang-en">
+        <h3>Dual-layer Overlay</h3>
+        <p>Each artist is plotted twice on the same political spectrum: hollow circle = geographic-political position (where their country and history places them), solid circle = artistic-political position (where their practice actually stands). The dashed line connecting the two encodes the tension: its length is magnitude, its direction is drift. Longer lines signal more significant collecting propositions — the gap between what history handed the artist and what they chose to do with it.</p>
+      </div>
+      <div class="lang-cn">
+        <h3>双层叠加图</h3>
+        <p>每位艺术家在同一政治光谱上被绘制两次：空心圆 = 地理政治坐标（国家与历史赋予其的位置），实心圆 = 艺术政治坐标（其创作实践真正站立的位置）。连接两点的虚线编码了张力：长度是幅度，方向是漂移方向。连线越长，收藏命题越重要——它揭示了历史赋予艺术家的与他们选择如何回应之间的距离。</p>
+      </div>
+    </div>
+    <div style="background:#f9f7f3;padding:2rem;border:1px solid var(--rule);border-radius:2px;margin:1.5rem 0">
+      <svg viewBox="0 0 700 300" style="width:100%;max-width:700px;display:block;margin:0 auto" xmlns="http://www.w3.org/2000/svg">
+        <line x1="50" y1="150" x2="650" y2="150" stroke="#c8c3ba" stroke-width="0.8"/>
+        <line x1="350" y1="20" x2="350" y2="280" stroke="#c8c3ba" stroke-width="0.8"/>
+        <text x="55" y="145" font-size="9" fill="#6b6760" font-family="DM Mono,monospace">Left</text>
+        <text x="618" y="145" font-size="9" fill="#6b6760" font-family="DM Mono,monospace">Right</text>
+        <text x="356" y="32" font-size="9" fill="#6b6760" font-family="DM Mono,monospace">Authoritarian</text>
+        <text x="356" y="275" font-size="9" fill="#6b6760" font-family="DM Mono,monospace">Liberated</text>
+
+        <!-- Ai Weiwei: geo=(155,267), art=(155,37) -->
+        <line x1="155" y1="267" x2="155" y2="37" stroke="#9c3a2a" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+        <circle cx="155" cy="267" r="7" fill="none" stroke="#9c3a2a" stroke-width="1.8"/>
+        <circle cx="155" cy="37" r="5.5" fill="#9c3a2a" opacity="0.9"/>
+        <text x="165" y="42" font-size="8.5" fill="#9c3a2a" font-family="DM Mono,monospace">Ai Weiwei ↑ art</text>
+        <text x="165" y="272" font-size="8.5" fill="#9c3a2a" font-family="DM Mono,monospace">geo ↓</text>
+
+        <!-- Yoan Capote: geo=(215,88) art=(215,186) -->
+        <line x1="215" y1="88" x2="215" y2="186" stroke="#639922" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+        <circle cx="215" cy="88" r="7" fill="none" stroke="#639922" stroke-width="1.8"/>
+        <circle cx="215" cy="186" r="5.5" fill="#639922" opacity="0.9"/>
+        <text x="225" y="92" font-size="8.5" fill="#639922" font-family="DM Mono,monospace">Capote geo</text>
+        <text x="225" y="190" font-size="8.5" fill="#639922" font-family="DM Mono,monospace">art ↓</text>
+
+        <!-- Andy Warhol: geo=(515,133), art=(515,108) — small gap -->
+        <line x1="515" y1="133" x2="515" y2="108" stroke="#1D9E75" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+        <circle cx="515" cy="133" r="7" fill="none" stroke="#1D9E75" stroke-width="1.8"/>
+        <circle cx="515" cy="108" r="5.5" fill="#1D9E75" opacity="0.9"/>
+        <text x="526" y="125" font-size="8.5" fill="#1D9E75" font-family="DM Mono,monospace">Warhol (small gap)</text>
+
+        <!-- Richard Long: geo=(254,193), art=(254,40) -->
+        <line x1="254" y1="193" x2="254" y2="40" stroke="#185FA5" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+        <circle cx="254" cy="193" r="7" fill="none" stroke="#185FA5" stroke-width="1.8"/>
+        <circle cx="254" cy="40" r="5.5" fill="#185FA5" opacity="0.9"/>
+        <text x="264" y="45" font-size="8.5" fill="#185FA5" font-family="DM Mono,monospace">R. Long art</text>
+        <text x="264" y="197" font-size="8.5" fill="#185FA5" font-family="DM Mono,monospace">geo</text>
+
+        <!-- legend bottom -->
+        <circle cx="400" cy="270" r="6" fill="none" stroke="#6b6760" stroke-width="1.5"/>
+        <text x="410" y="274" font-size="8.5" fill="#6b6760" font-family="DM Mono,monospace">Geographic position</text>
+        <circle cx="560" cy="270" r="5" fill="#6b6760" opacity="0.7"/>
+        <text x="570" y="274" font-size="8.5" fill="#6b6760" font-family="DM Mono,monospace">Artistic position</text>
+      </svg>
+      <p style="font-size:0.75rem;color:var(--dim);margin-top:1rem;font-family:'DM Mono',monospace;text-align:center">Illustrative — full 54-artist interactive version in live sessions / 示意图</p>
+    </div>
+  </div>
+
+  <div class="framework-panel" id="fp2">
+    <div class="bilingual">
+      <div class="lang-en">
+        <h3>Tension Matrix &amp; Chord Diagram</h3>
+        <p><strong>Tension matrix:</strong> Axes are redrawn so that the tension itself becomes the primary variable. Horizontal: geographic-political pressure (open → closed). Vertical: artistic-political deviation (conformity → defiance). Node size encodes tension magnitude. The top-right quadrant (closed system, defiant practice) is the most dramatically charged zone in the framework.</p>
+        <p><strong>Chord diagram:</strong> Two parallel axes — geographic-political position on the left, artistic-political position on the right. Each artist is a chord connecting their two positions. Chord curvature encodes tension: the more it bends, the further the two coordinate systems are from each other.</p>
+      </div>
+      <div class="lang-cn">
+        <h3>张力矩阵与弦图</h3>
+        <p><strong>张力矩阵：</strong>重新绘制坐标轴，使张力本身成为主要变量。横轴：地理政治压力强度（开放→封闭）。纵轴：艺术政治偏离度（顺从→对抗）。节点大小编码张力幅度。右上象限（封闭体制，对抗实践）是框架中张力最戏剧化的区域。</p>
+        <p><strong>弦图：</strong>两条平行坐标轴——左侧为地理政治坐标，右侧为艺术政治坐标。每位艺术家是连接其两个位置的一条弦。弦的弯曲程度编码张力：弯曲越大，两个坐标系之间的距离越远。</p>
+      </div>
+    </div>
+    <div style="background:#f9f7f3;padding:1.5rem;border:1px solid var(--rule);border-radius:2px;margin:1.5rem 0;text-align:center">
+      <p style="font-size:0.8rem;color:var(--dim);font-family:'DM Mono',monospace">Full interactive version available in live research sessions — all 54 artists, filterable by region and tension level.<br>完整交互版本在研究会话中提供——54位艺术家，可按地区和张力等级筛选。</p>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SECTION 04 · DIALOGUE / DERIVATION
+     ════════════════════════════════════════ -->
+<section id="dialogue">
+<div class="page">
+  <div class="section-label">04 · Derivation Process &nbsp; 推导过程</div>
+
+  <div class="bilingual fade-in" style="margin-bottom:2.5rem">
+    <div class="lang-en"><p>Selected exchanges from the research conversation that generated this framework. These are not transcribed verbatim but represent the key inflection points where the framework's logic shifted, deepened, or was corrected.</p></div>
+    <div class="lang-cn"><p>生成此框架的研究对话中的关键节点选录。这些并非逐字转录，而是代表了框架逻辑发生转折、深化或被修正的关键时刻。</p></div>
+  </div>
+
+  <div class="dialogue-thread">
+
+    <!-- Phase 1 -->
+    <div class="d-moment fade-in">
+      <div class="d-phase">Phase 01 · Initial proposition / 初始命题</div>
+      <div class="d-exchange">
+        <div class="d-q">
+          <div class="d-q-label">Collector / 收藏家</div>
+          <div class="bilingual">
+            <div class="lang-en">I need to build a classification framework for an independent collector. The collection focuses on the political stance of artists and their work. The foundational logic should be an X-axis (political left–right) and Y-axis (degree of governmental authoritarianism: from oligarchy to anarchism). On this basis, artists from different countries occupy different positions.</div>
+            <div class="lang-cn">需要制作一个独立收藏家的当代艺术品收藏分类框架，艺术收藏关注艺术家和其作品的政治立场和各类议题的讨论，所以希望这个框架的底层逻辑是一个X轴（政治左右翼）和Y轴（政府集权程度：如寡头政治至于无政府主义），在这个基础上，不同国家的艺术家处在不同的维度。</div>
+          </div>
+        </div>
+        <div class="d-insight">
+          <div class="d-insight-label">Framework origin / 框架起点</div>
+          <div class="bilingual">
+            <div class="lang-en">The two-axis political spectrum is established. The initial formulation already implies a tension: "different countries" suggests geographic-political positioning, but "political stance of artists and their work" suggests artistic-political positioning. This distinction will become the framework's central proposition.</div>
+            <div class="lang-cn">双轴政治光谱确立。初始表述已隐含一个张力："不同国家"意味着地理政治定位，但"艺术家和其作品的政治立场"意味着艺术政治定位。这一区分将成为框架的核心命题。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="d-moment fade-in">
+      <div class="d-phase">Phase 02 · Transcultural themes / 跨国别议题</div>
+      <div class="d-exchange">
+        <div class="d-q">
+          <div class="d-q-label">Collector / 收藏家</div>
+          <div class="bilingual">
+            <div class="lang-en">The discussion about labels is too limited. Maoist thought or Xi Jinping's environmentalism are actually topics that foreign artists engage with — for instance, Mimmo Paladino studied Maoist-era Chinese visual culture and exhibited at the Forbidden City and the Great Wall. This is a topic capable of international dialogue, transcending national borders.</div>
+            <div class="lang-cn">上面关于标签的讨论我觉得你有点局限，因为毛泽东思想或者习近平环保主义其实是有国外艺术家在关注的，比如Mimmo曾经针对当代中国印象和他对于毛泽东主义的研究创作过一系列作品并在中国故宫和长城展览，这是一个可以国际对话的议题，超越国别，请矫正补充。</div>
+          </div>
+        </div>
+        <div class="d-insight">
+          <div class="d-insight-label">Key correction / 关键修正</div>
+          <div class="bilingual">
+            <div class="lang-en">Issue labels are recalibrated from "identity tags" to "dialogue structures." A theme like Maoism is not the property of Chinese artists — it is a shared political image field that artists of any origin can engage with. This correction anticipates the later meta-proposition: political coordinates are not confined by national borders.</div>
+            <div class="lang-cn">议题标签从"身份标签"重新校准为"对话结构"。毛泽东主义这类议题不是中国艺术家的专属——它是任何国籍的艺术家都可以进入的共享政治图像场域。这一修正预示了后来的元命题：政治坐标不被国别所限制。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="d-moment fade-in">
+      <div class="d-phase">Phase 03 · Collector's root / 收藏家的根</div>
+      <div class="d-exchange">
+        <div class="d-q">
+          <div class="d-q-label">Collector / 收藏家</div>
+          <div class="bilingual">
+            <div class="lang-en">This collector's system is rooted in China, creating more international dialogue. The intention is to show that political themes and positions are not confined within national borders but are shared, dialogic propositions. From this angle, can the model better foreground these unique narrative threads rather than simply displaying quadrants?</div>
+            <div class="lang-cn">因为这位收藏家的体系是基于自己的root（中国）创造更多的国际对话，想表明政治性议题和立场不被局限在国别内，而是可以对话的共通议题，所以从这个角度这个模型能更凸显这些独特的故事线而不是简单的象限吗？</div>
+          </div>
+        </div>
+        <div class="d-insight">
+          <div class="d-insight-label">Narrative shift / 叙事转向</div>
+          <div class="bilingual">
+            <div class="lang-en">Story threads replace quadrants as the primary collecting narrative unit. The collector's Chinese root becomes an explicit vantage point — not a limitation but a generative lens through which international political dialogue becomes visible. This reframes the entire framework from a classification system into a collecting philosophy.</div>
+            <div class="lang-cn">故事线取代象限，成为主要的收藏叙事单元。收藏家的中国根被明确为一个视角——不是局限，而是一个生成性的透镜，通过它，国际政治对话变得可见。这将整个框架从分类系统重塑为收藏哲学。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 4 -->
+    <div class="d-moment fade-in">
+      <div class="d-phase">Phase 04 · The three-type system / 三类定位逻辑</div>
+      <div class="d-exchange">
+        <div class="d-q">
+          <div class="d-q-label">Collector / 收藏家</div>
+          <div class="bilingual">
+            <div class="lang-en">Geography-based political science is still very important for this framework — if all artists converged there would be no need to classify at all. So I think the framework should still be based on geographic-political science. But for artists like Yan Ping, the "indifferent" political attribute you mentioned is very important — can these artists be classified more through the standard of art political science, so as not to forcibly distort the artist's subjectivity?</div>
+            <div class="lang-cn">我觉得地理政治学对于这个框架还是非常重要的，如果所有艺术家都趋同就没有必要分类了，所以我觉得目前还是基于地理政治学的框架为基础。但是例如闫平这类艺术家你提到的"漠视"政治属性非常重要，对于这类艺术家是否能更偏重用艺术政治学的标准来分类，这样不强行篡改艺术家的主观呢？</div>
+          </div>
+        </div>
+        <div class="d-insight">
+          <div class="d-insight-label">The three-type logic / 三类逻辑确立</div>
+          <div class="bilingual">
+            <div class="lang-en">The three-type system is established: Political artists (●) — Y-axis from artistic practice; Indifferent artists (■) — Y-axis centred, color carries geographic context; Strategically ambiguous artists (▲) — between the two. This resolves a structural problem: the framework preserves geographic differentiation while refusing to let nationality determine an artist's political standing within it.</div>
+            <div class="lang-cn">三类系统确立：政治性艺术家（●）——Y轴由艺术实践决定；漠视性艺术家（■）——Y轴归中，颜色携带地理语境；策略性模糊艺术家（▲）——介于两者之间。这解决了一个结构性问题：框架保留了地理差异，同时拒绝让国籍决定艺术家在框架中的政治站位。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 5 -->
+    <div class="d-moment fade-in">
+      <div class="d-phase">Phase 05 · The meta-proposition / 元命题</div>
+      <div class="d-exchange">
+        <div class="d-q">
+          <div class="d-q-label">Collector / 收藏家</div>
+          <div class="bilingual">
+            <div class="lang-en">I think your judgment about the correctness of the Y-axis is reasonable, but it belongs to the realm of art political science — and the result of this correction would be more artists clustering together, which would cause this framework to lose meaning. So what needs to be done now is to clearly define geographic-political science and artistic-political science, and apply them precisely to each artist. Or — there is a larger change — I think through our discussion we have gradually discovered a meta-proposition worth serious attention by this collector: the definition of geographic-political science and artistic-political science, and the distance and tension between them. If we look at our analytical framework from this angle, do you think there is a better way to express it?</div>
+            <div class="lang-cn">我觉得你现在对于Y轴正确性的判断是有道理的，但是它归属于艺术政治性范畴，这样修改的结果是更多的艺术家更集中，过度的集中会使这个框架丧失意义。所以现在需要做的是明确定义地理政治性和艺术政治性的定义，并精准的应用到每个中国艺术家身上。或者还有一种更大面积的变化，我觉得随着我们的讨论逐渐发现了这位收藏家很值得关注的一个元命题，即：地理政治性与艺术政治性的定义以及两者之间的距离和张力，如果用这个视角来做我们的这个分析框架你觉得有更好的表现形式吗？</div>
+          </div>
+        </div>
+        <div class="d-insight">
+          <div class="d-insight-label">The meta-proposition crystallises / 元命题形成</div>
+          <div class="bilingual">
+            <div class="lang-en">This is the framework's most significant intellectual moment. The collector identifies that the distance between geographic-political and artistic-political positions is not a problem to be corrected — it is the framework's most generative subject. Three new visual forms are proposed: dual-layer overlay (tension as a vector on the original map), tension matrix (tension itself as the primary axis), and chord diagram (tension as narrative). The collecting philosophy shifts from "where does each artist stand?" to "what is the nature of the gap between where they are placed and where they choose to stand?"</div>
+            <div class="lang-cn">这是框架最重要的智识时刻。收藏家认识到，地理政治与艺术政治坐标之间的距离不是一个需要纠正的问题——它是框架最具生成性的主题。三种新的视觉形式被提出：双层叠加（张力作为原始地图上的向量）、张力矩阵（张力本身作为主要坐标轴）、弦图（张力作为叙事）。收藏哲学从"每位艺术家站在哪里？"转向"他们被安置的位置与他们选择站立的位置之间的差距是什么性质的？"</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 6 -->
+    <div class="d-moment fade-in">
+      <div class="d-phase">Phase 06 · X-axis calibration / X轴校准</div>
+      <div class="d-exchange">
+        <div class="d-q">
+          <div class="d-q-label">Collector / 收藏家</div>
+          <div class="bilingual">
+            <div class="lang-en">Why is Dadamaino right-wing?</div>
+            <div class="lang-cn">Dadamaino为什么是右翼？</div>
+          </div>
+        </div>
+        <div class="d-a">
+          <div class="d-a-label">Research response / 研究回应</div>
+          <div class="bilingual">
+            <div class="lang-en">This is an important question that exposes a structural error. The positioning of indifferent artists on the X-axis was using market position as a proxy for political content orientation — treating "does not engage with political content" as equivalent to "right-wing." Dadamaino's optical art and Spazialismo practice is in fact close to the anti-commodity logic of Arte Povera. Her circle included Manzoni and other anti-institutional figures. X-axis should be recalibrated to reflect content orientation, not market success.</div>
+            <div class="lang-cn">这个问题揭示了一个结构性错误。漠视性艺术家的X轴定位使用了市场地位作为政治内容倾向的替代变量——将"不涉及政治内容"等同于"右翼"。Dadamaino的光效艺术和空间主义实践实际上接近Arte Povera的反商品逻辑，她的圈子包括Manzoni等反体制人物。X轴应重新校准为反映内容倾向，而非市场成功。</div>
+          </div>
+        </div>
+        <div class="d-insight">
+          <div class="d-insight-label">Systemic correction / 系统性修正</div>
+          <div class="bilingual">
+            <div class="lang-en">15 artists are recalibrated, establishing a principle: for indifferent artists, X-axis reflects content and material logic, not market position. Sensory/spatial/philosophical experimentation drifts mildly left (passive resistance to commodity logic). Only explicit market embrace (Sandro Chia) or declared political conservatism (Baselitz) justifies right-of-centre positioning for indifferent or ambiguous artists.</div>
+            <div class="lang-cn">15位艺术家被重新校准，确立了一个原则：对于漠视性艺术家，X轴反映内容和材料逻辑，而非市场地位。感知/空间/哲学实验轻微偏左（对商品逻辑的被动抵抗）。只有明确的市场拥抱（Sandro Chia）或明确的政治保守主义立场（Baselitz）才能为漠视性或策略性艺术家的偏右定位提供依据。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /dialogue-thread -->
+</div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-meta">
+      A Collector's Political Framework for Contemporary Art<br>
+      当代艺术收藏政治学框架<br>
+      Version 7.1 · Updated via research dialogue
+    </div>
+    <div class="version-tag">
+      v7.1 · 2026<br>
+      Method A — regenerated on update
+    </div>
+  </div>
+</footer>
+
+<script>
+// Language toggle
+function setLang(mode) {
+  document.body.classList.remove('show-cn','show-en');
+  if(mode==='cn') document.body.classList.add('show-cn');
+  if(mode==='en') document.body.classList.add('show-en');
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('btn-'+mode).classList.add('active');
+}
+
+// Framework tabs
+function showFrame(i, btn) {
+  document.querySelectorAll('.framework-panel').forEach((p,j)=>{
+    p.classList.toggle('active', j===i);
+  });
+  document.querySelectorAll('.ftab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Nav active state on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+function updateNav() {
+  let current = '';
+  sections.forEach(s => {
+    if(window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(l => {
+    l.classList.toggle('active', l.getAttribute('href') === '#'+current);
+  });
+}
+window.addEventListener('scroll', updateNav, {passive:true});
+updateNav();
+
+// Fade-in on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
